@@ -151,7 +151,7 @@ client2.on('guildMemberAdd', member => {
       return;
     }
     if( member.guild.name == serverName){
-      client2.channels.get(welcomeChanID).send("👋 Welcome to the server "+ member + " please see " + infourl + ", enjoy !"); //send to specific chan
+      client2.channels.get(welcomeChanID).send("👋 Welcome to the server "+ member + " type !help (preferably in private to user @Instacash) or see " + infourl + ", enjoy !"); //send to specific chan
       console.log("WELCOME: " +  member.displayName  + " to " + member.guild); 
     }
   });
