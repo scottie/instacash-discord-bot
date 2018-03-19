@@ -12,7 +12,7 @@ Shows latest twitter news from instacash.
 
 ## !wallet
 !wallet help
-!wallet deposit
+!wallet deposit (or address)
 !wallet balance
 !wallet send <TO ADDRESS> <AMOUNT> (use as withdraw)
 

@@ -29,34 +29,6 @@ var RPCuser = config.RPCuser;
 var lastestVersion = "v1.2";
 //github chan 411029890608005121
 var helpfile = "https://raw.githubusercontent.com/insta-cash/instacash-discord-bot/master/README.md";
-var hesp = " [HELP]" + "\n" +
-"## !ticker" + "\n" +
-"Yep you guessed it"+ "\n" +
-"" + "\n" +
-"## !news"+ "\n" +
-"Shows latest twitter news from instacash." + "\n" +
-"" + "\n" +
-"## !wallet" + "\n" +
-"!wallet help" + "\n" +
-"!wallet deposit"+ "\n" +
-"!wallet balance"+ "\n" +
-"!wallet send <TO ADDRESS> <AMOUNT> (use as withdraw)"+ "\n" +
-"" + "\n" +
-"## !wallet"+ "\n" +
-"!tip help"+ "\n" +
-"!tip <USERID> <AMOUNT>"+ "\n" +
-"" + "\n" +
-"## !rain"+ "\n" +
-"!rain help"+ "\n" +
-"!rain <NUMBER TO RAIN ON> <AMOUNT EACH>"+ "\n" +
-"" + "\n" +
-"## !lol"+ "\n" +
-"!lol"+ "\n" +
-"Returns back chuck norris style instacash jokes..."+ "\n" +
-"" + "\n" +
-"## !download"+ "\n" +
-"Latest download link for most recent wallet and vesrion";
-;
 
 //https://discordapp.com/oauth2/authorize?client_id=&scope=bot&permissions=515136
 const JSON = require('circular-json');
@@ -329,7 +301,7 @@ client2.on('message', function(message) {
             message.reply(infourl + "\n" + " 📚  Bot Commands: https://github.com/insta-cash/instacash-discord-bot/blob/master/README.md");
             request(helpfile, function (error, response, body) {
               if(!error){
-                message.reply(body.split("## Spam Filter")[0]);
+                message.reply(body.split("## Spam Filter")[0].replace(/##/g,"💡"));
               }
             });
             return;
@@ -429,12 +401,12 @@ client2.on('message', function(message) {
               "📚 Syntax: !wallet <COMMAND> \n " +
               "📚 IE: !wallet deposit \n" +
               "📚 Commands: \n" +
-              "```deposit, balance, send```";
+              "```deposit (or address), balance, send```";
               message.reply(helptxt);
               return;
             }   
 
-            if(message.content.split(" ")[1] == "deposit"){
+            if(message.content.split(" ")[1] == "deposit" || message.content.split(" ")[1] == "address"){
               var id = message.author.id;
               var username = message.author.username;
               client.cmd('getaddressesbyaccount', id, function(error, address) { 
