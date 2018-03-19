@@ -16,7 +16,7 @@ Shows latest twitter news from instacash.
 !wallet balance
 !wallet send <TO ADDRESS> <AMOUNT> (use as withdraw)
 
-## !wallet
+## !tip
 !tip help
 !tip <USERID> <AMOUNT>
 
